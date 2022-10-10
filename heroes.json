@@ -1,0 +1,55 @@
+{
+  "heroes": [
+    {
+      "id": 1,
+      "name": "Первый герой",
+      "description": "Первый герой в рейтинге!",
+      "element": "fire"
+    },
+    {
+      "id": 2,
+      "name": "Неизвестный герой",
+      "description": "Скрывающийся в тени",
+      "element": "wind"
+    },
+    {
+      "id": 3,
+      "name": "Морской герой",
+      "description": "Как аквамен, но не из DC",
+      "element": "water"
+    },
+    {
+      "id": "1618fa02-94bb-400c-8473-be3c0f371182",
+      "name": "Супер земля",
+      "description": "властелин земли и спокойствия",
+      "element": "earth"
+    }
+  ],
+  "filters": [
+    {
+      "name": "все",
+      "filter": "all",
+      "clazz": "btn-dark"
+    },
+    {
+      "name": "огонь",
+      "filter": "fire",
+      "clazz": "btn-danger"
+    },
+    {
+      "name": "вода",
+      "filter": "water",
+      "clazz": "btn-primary"
+    },
+    {
+      "name": "ветер",
+      "filter": "wind",
+      "clazz": "btn-success"
+    },
+    {
+      "name": "земля",
+      "filter": "earth",
+      "clazz": "btn-secondary"
+    }
+  ]
+}
