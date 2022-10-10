@@ -1,11 +1,3 @@
-
-// Задача для этого компонента:
-// Фильтры должны формироваться на основании загруженных данных
-// Фильтры должны отображать только нужных героев при выборе
-// Активный фильтр имеет класс active
-// Изменять json-файл для удобства МОЖНО!
-// Представьте, что вы попросили бэкенд-разработчика об этом
-
 import { useEffect } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { filtersFetching, filtersFetched, filtersFetchingError, selectFilter } from '../../actions';
@@ -14,7 +6,7 @@ import Spinner from '../spinner/Spinner';
 
 const HeroesFilters = () => {
     const dispatch = useDispatch();
-    const {filters, filtersLoadingStatus, selectedFilter} = useSelector(state => state);
+    const {filters, filtersLoadingStatus, selectedFilter} = useSelector(state => state.filters);
     const {request} = useHttp();
 
     useEffect(()=> {
@@ -31,15 +23,14 @@ const HeroesFilters = () => {
         return <h5 className="text-center mt-5">Ошибка загрузки</h5>
     }
 
-
-
     const renderFiltersBtns = (data) => {
         if (data.length === 0) {
             return
         }
         return data.map(({name, filter, clazz}) => {
-          
-            const active = selectedFilter === filter? {transform: 'translateY(-3px)', transition: "all .4s"} : null
+            const active = selectedFilter === filter? 
+                {transform: 'translateY(-3px)', transition: "all .4s"} : 
+                null
             return <button 
                         key={name}
                         onClick={()=> dispatch(selectFilter(filter))} 
@@ -50,7 +41,6 @@ const HeroesFilters = () => {
         })
     }
     
-    
     return (
         <div className="card shadow-lg mt-4">
             <div className="card-body">
@@ -58,9 +48,8 @@ const HeroesFilters = () => {
                 <div className="btn-group">
                     {renderFiltersBtns(filters)}
                 </div>
-
-                </div>
             </div>
+        </div>
         
     )
 }
