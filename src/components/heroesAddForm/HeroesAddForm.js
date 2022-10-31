@@ -2,7 +2,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import { heroesFetching, heroesFetchingError, addHeroe } from '../../actions';
+import { heroesFetching, heroesFetchingError, addHeroe } from '../heroesList/heroesSlice';
 import {useHttp} from '../../hooks/http.hook';
 
 
@@ -14,18 +14,18 @@ const HeroesAddForm = () => {
     const [text, setText] = useState('');
     const [element, setElement] = useState();
 
-    const inValueInput = (e) => {
-        const target = e.target;
-        switch (target.name){
-            case 'name':
-                return setName(target.value)
-            case 'text':
-                return setText(target.value)
-            case 'element':
-                return setElement(target.value)
-            default: return
-        }
-    }
+    // const inValueInput = (e) => {
+    //     const target = e.target;
+    //     switch (target.name){
+    //         case 'name':
+    //             return setName(target.value)
+    //         case 'text':
+    //             return setText(target.value)
+    //         case 'element':
+    //             return setElement(target.value)
+    //         default: return
+    //     }
+    // }
 
     const addHeroOn = (e) => {
         e.preventDefault();
@@ -60,7 +60,7 @@ const HeroesAddForm = () => {
                 <label htmlFor="name" className="form-label fs-4">Имя нового героя</label>
                 <input
                     value={name} 
-                    onChange={(e)=>inValueInput(e)}
+                    onChange={(e)=>setName(e.target.value)}
                     required
                     type="text" 
                     name="name" 
@@ -73,7 +73,7 @@ const HeroesAddForm = () => {
                 <label htmlFor="text" className="form-label fs-4">Описание</label>
                 <textarea
                     value={text}
-                    onChange={(e)=>inValueInput(e)}
+                    onChange={(e)=>setText(e.target.value)}
                     required
                     name="text" 
                     className="form-control" 
@@ -86,7 +86,7 @@ const HeroesAddForm = () => {
                 <label htmlFor="element" className="form-label">Выбрать элемент героя</label>
                 <select 
                     value={element}
-                    onChange={(e)=>inValueInput(e)}
+                    onChange={(e)=>setElement(e.target.value)}
                     required
                     className="form-select" 
                     id="element" 
