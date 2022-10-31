@@ -1,4 +1,3 @@
-
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
@@ -13,19 +12,6 @@ const HeroesAddForm = () => {
     const [name, setName] = useState('');
     const [text, setText] = useState('');
     const [element, setElement] = useState();
-
-    // const inValueInput = (e) => {
-    //     const target = e.target;
-    //     switch (target.name){
-    //         case 'name':
-    //             return setName(target.value)
-    //         case 'text':
-    //             return setText(target.value)
-    //         case 'element':
-    //             return setElement(target.value)
-    //         default: return
-    //     }
-    // }
 
     const addHeroOn = (e) => {
         e.preventDefault();
